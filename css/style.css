@@ -1,0 +1,735 @@
+
+/* =================================
+   1. GLOBAL SETTINGS
+================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: #0b0f19;
+    color: #ffffff;
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+
+/* =================================
+   2. NAVIGATION BAR
+================================= */
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+
+    background: rgba(11, 15, 25, 0.85);
+    backdrop-filter: blur(15px);
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.navbar {
+    max-width: 1200px;
+    height: 80px;
+    margin: auto;
+    padding: 0 30px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    font-size: 25px;
+    font-weight: 800;
+}
+
+.logo span {
+    color: #8b5cf6;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 35px;
+}
+
+.nav-links a {
+    color: #a1a1aa;
+    font-size: 14px;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: #a78bfa;
+}
+
+.nav-button {
+    padding: 12px 24px;
+    background: #8b5cf6;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.nav-button:hover {
+    background: #7c3aed;
+    transform: translateY(-3px);
+}
+
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 27px;
+    cursor: pointer;
+}
+
+
+/* =================================
+   3. HERO SECTION
+================================= */
+
+.hero {
+    min-height: 100vh;
+    max-width: 1200px;
+    margin: auto;
+    padding: 150px 30px 80px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 60px;
+}
+
+.hero-content {
+    max-width: 620px;
+}
+
+.greeting {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+
+    color: #a1a1aa;
+    font-size: 14px;
+    margin-bottom: 25px;
+}
+
+.status-dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: #22c55e;
+    box-shadow: 0 0 12px #22c55e;
+}
+
+.hero h1 {
+    font-size: clamp(38px, 5vw, 64px);
+    line-height: 1.2;
+    font-weight: 800;
+    margin-bottom: 15px;
+}
+
+.gradient-text {
+    background: linear-gradient(90deg, #a78bfa, #38bdf8);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.hero h2 {
+    font-size: 25px;
+    color: #a1a1aa;
+    margin-bottom: 25px;
+    font-weight: 500;
+}
+
+.hero-description {
+    max-width: 550px;
+    color: #9ca3af;
+    font-size: 16px;
+    line-height: 1.9;
+    margin-bottom: 35px;
+}
+
+
+/* =================================
+   4. HERO BUTTONS
+================================= */
+
+.hero-buttons {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    padding: 15px 25px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.btn-primary {
+    background: linear-gradient(90deg, #7c3aed, #6366f1);
+    color: white;
+}
+
+.btn-primary:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 30px rgba(124, 58, 237, 0.3);
+}
+
+.btn-secondary {
+    border: 1px solid #374151;
+    color: white;
+}
+
+.btn-secondary:hover {
+    border-color: #8b5cf6;
+    color: #a78bfa;
+}
+
+
+/* =================================
+   5. SOCIAL LINKS
+================================= */
+
+.social-links {
+    display: flex;
+    gap: 25px;
+    margin-top: 35px;
+}
+
+.social-links a {
+    color: #9ca3af;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.social-links a:hover {
+    color: #a78bfa;
+}
+
+
+/* =================================
+   6. PROFILE IMAGE
+================================= */
+
+.hero-image {
+    position: relative;
+    width: 350px;
+    height: 350px;
+    flex-shrink: 0;
+}
+
+.image-glow {
+    position: absolute;
+    inset: 0;
+
+    background: linear-gradient(135deg, #8b5cf6, #38bdf8);
+
+    filter: blur(90px);
+    opacity: 0.35;
+}
+
+.profile-card {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding: 8px;
+
+    border-radius: 30px;
+
+    background: linear-gradient(135deg, #8b5cf6, #38bdf8);
+
+    transform: rotate(3deg);
+}
+
+.profile-placeholder {
+    width: 100%;
+    height: 100%;
+
+    border-radius: 25px;
+    background: #151b2b;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    color: #a78bfa;
+    font-size: 28px;
+    font-weight: 800;
+    letter-spacing: 5px;
+}
+
+
+/* =================================
+   7. RESPONSIVE DESIGN
+================================= */
+
+@media (max-width: 900px) {
+
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        gap: 60px;
+    }
+
+    .hero-content {
+        max-width: 100%;
+    }
+
+    .hero-description {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hero-buttons,
+    .social-links {
+        justify-content: center;
+    }
+
+    .hero-image {
+        width: 300px;
+        height: 300px;
+    }
+}
+
+
+/* =================================
+   8. MOBILE DESIGN
+================================= */
+
+@media (max-width: 650px) {
+
+    .navbar {
+        padding: 0 20px;
+    }
+
+    .nav-links {
+        display: none;
+
+        position: absolute;
+        top: 80px;
+        left: 0;
+
+        width: 100%;
+        padding: 25px;
+
+        background: #151b2b;
+
+        flex-direction: column;
+        gap: 25px;
+    }
+
+    .nav-links.show {
+        display: flex;
+    }
+
+    .nav-button {
+        display: none;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .hero {
+        padding: 130px 20px 70px;
+    }
+
+    .hero h2 {
+        font-size: 20px;
+    }
+
+    .hero-image {
+        width: 250px;
+        height: 250px;
+    }
+}
+
+
+/* =================================
+   9. GENERAL SECTIONS
+================================= */
+
+.section {
+    max-width: 1200px;
+    margin: auto;
+    padding: 100px 30px;
+}
+
+.section-heading {
+    text-align: center;
+    margin-bottom: 55px;
+}
+
+.section-tag {
+    color: #a78bfa;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 3px;
+}
+
+.section-heading h2 {
+    font-size: 42px;
+    margin: 15px 0;
+}
+
+.section-heading p {
+    color: #9ca3af;
+    line-height: 1.7;
+}
+
+
+/* =================================
+   10. ABOUT SECTION
+================================= */
+
+.about-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+}
+
+.about-card {
+    background: #151b2b;
+    border: 1px solid #293247;
+    padding: 35px;
+    border-radius: 15px;
+    transition: 0.3s;
+}
+
+.about-card:hover {
+    transform: translateY(-5px);
+    border-color: #8b5cf6;
+}
+
+.about-card h3 {
+    font-size: 22px;
+    margin-bottom: 20px;
+}
+
+.about-card p {
+    color: #9ca3af;
+    line-height: 1.9;
+    margin-bottom: 15px;
+}
+
+.interest-list {
+    display: grid;
+    gap: 18px;
+    color: #c4b5fd;
+}
+
+
+/* =================================
+   11. SKILLS SECTION
+================================= */
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.skill-card {
+    background: #151b2b;
+    border: 1px solid #293247;
+    padding: 30px 20px;
+    border-radius: 15px;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.skill-card:hover {
+    transform: translateY(-7px);
+    border-color: #8b5cf6;
+    box-shadow: 0 10px 30px rgba(139, 92, 246, 0.1);
+}
+
+.skill-card span {
+    font-size: 35px;
+}
+
+.skill-card h3 {
+    margin: 15px 0 8px;
+}
+
+.skill-card p {
+    color: #9ca3af;
+    font-size: 13px;
+}
+
+
+/* =================================
+   12. PROJECTS SECTION
+================================= */
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+}
+
+.project-card {
+    background: #151b2b;
+    border: 1px solid #293247;
+    border-radius: 15px;
+    overflow: hidden;
+    transition: 0.3s;
+}
+
+.project-card:hover {
+    transform: translateY(-7px);
+    border-color: #8b5cf6;
+}
+
+.project-icon {
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 55px;
+    background: linear-gradient(135deg, #252047, #172c46);
+}
+
+.project-info {
+    padding: 25px;
+}
+
+.project-category {
+    color: #a78bfa;
+    font-size: 10px;
+    letter-spacing: 2px;
+    font-weight: 700;
+}
+
+.project-info h3 {
+    margin: 15px 0;
+    font-size: 19px;
+}
+
+.project-info p {
+    color: #9ca3af;
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+.project-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 20px;
+}
+
+.project-tech span {
+    background: #252047;
+    color: #c4b5fd;
+    padding: 7px 10px;
+    border-radius: 5px;
+    font-size: 11px;
+}
+
+
+/* =================================
+   13. CONTACT SECTION
+================================= */
+
+.contact-section {
+    padding-bottom: 120px;
+}
+
+.contact-card {
+    max-width: 700px;
+    margin: auto;
+    padding: 50px 25px;
+    text-align: center;
+    border-radius: 18px;
+    background: linear-gradient(135deg, #1e1b3b, #14253a);
+    border: 1px solid #374151;
+}
+
+.contact-card h3 {
+    font-size: 27px;
+    margin-bottom: 15px;
+}
+
+.contact-card p {
+    color: #9ca3af;
+    line-height: 1.8;
+    margin-bottom: 30px;
+}
+
+
+/* =================================
+   14. FOOTER
+================================= */
+
+.footer {
+    border-top: 1px solid #293247;
+    padding: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #9ca3af;
+    font-size: 13px;
+}
+
+.footer a {
+    color: #a78bfa;
+}
+
+
+/* =================================
+   15. RESPONSIVE SECTIONS
+================================= */
+
+@media (max-width: 900px) {
+
+    .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+@media (max-width: 650px) {
+
+    .section {
+        padding: 75px 20px;
+    }
+
+    .section-heading h2 {
+        font-size: 32px;
+    }
+
+    .about-content {
+        grid-template-columns: 1fr;
+    }
+
+    .skills-grid,
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .footer {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+
+}
+.profile-image {
+    width: 280px;
+    height: 280px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 4px solid #6c63ff;
+    box-shadow: 0 0 35px rgba(108, 99, 255, 0.35);
+    margin: auto;
+}
+
+.profile-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+.profile-image:hover img {
+    transform: scale(1.08);
+}
+
+/* Scroll reveal animation */
+.reveal {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.reveal.animate {
+    animation: fadeUp 0.8s ease both;
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.project-card:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.project-card:nth-child(2) {
+    animation-delay: 0.25s;
+}
+
+.project-card:nth-child(3) {
+    animation-delay: 0.4s;
+}
+/* Texte qui s'écrit */
+.typing {
+    color: #a78bfa;
+}
+
+.cursor {
+    color: #a78bfa;
+    animation: blink 0.8s infinite;
+}
+
+@keyframes blink {
+    50% { opacity: 0; }
+}
+/* Liens des projets */
+.project-links {
+    margin-top: 18px;
+}
+
+.project-links a {
+    display: inline-block;
+    padding: 8px 16px;
+    border: 1px solid #8b5cf6;
+    border-radius: 8px;
+    color: #a78bfa;
+    font-size: 13px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.project-links a:hover {
+    background: #8b5cf6;
+    color: white;
+}
